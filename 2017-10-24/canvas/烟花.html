@@ -3,18 +3,19 @@
 <head>
     <meta charset="utf-8">
     <title>粒子烟花</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             background-image: linear-gradient(6deg, #214, #000);
             background-size: 100% 100%;
-            overflow:hidden
+            overflow:hidden;
+            margin: 0;
         }
 
-        canvas { display: block; }</style>
+        canvas { display: block; }
+    </style>
 </head>
 <body>
-<div></div>
 
 <script>
     class Vector2 {
@@ -243,7 +244,7 @@
         const explosionFactory = getExplosionFactory(Math.random() * 360);
 
         const position = new Vector2(Math.random() * canvas.width, canvas.height);
-        const thrust = window.innerHeight * .75;
+        const thrust = window.innerHeight *((Math.random()/2+0.5)*1.2);//0.6~1.2的高度
         const angle = Math.PI / -2 + (Math.random() - .5) * Math.PI / 8;
         const velocity = new Vector2(Math.cos(angle) * thrust, Math.sin(angle) * thrust);
         const lifetime = 3;
@@ -281,7 +282,6 @@
     setInterval(addRocket, 2000);
     render();
 </script>
-<canvas height="637" width="638"></canvas>
 
 </body>
 </html>
